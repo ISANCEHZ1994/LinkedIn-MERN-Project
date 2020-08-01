@@ -17,10 +17,41 @@ export const PlayerSchema = new Schema({
     },
     phone: {
         type: Number, //   NOTICE NOT INTEGER
-        required: true,
     },
     isCoach: {
         type: Boolean,
+        default: false,
+    },
+    teamName: {
+        type: String,
         required: true,
+    },
+    speed: {
+        type: Number,
+        enum: [1, 2, 3]
+    },
+    strength: {
+        type: Number,
+        enum: [1, 2, 3]
+    },
+    endurance: {
+        type: Number,
+        enum: [1, 2, 3]
+    },
+    ability: {
+        type: Number,
+        enum: [1, 2, 3]
+    },
+    techniques: {
+        type: Number,
+        enum: [1, 2, 3]
+    },
+    tactical: {
+        type: Number,
+        enum: [1, 2, 3]
+    },
+    createdDate: {
+        type: Date,
+        default: Date.now
     }
-})
+});
