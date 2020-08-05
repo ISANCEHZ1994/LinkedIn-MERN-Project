@@ -24,7 +24,7 @@ export const PlayerSchema = new Schema({
     },
     teamName: {
         type: String,
-        required: true,
+        // required: true,
     },
     speed: {
         type: Number,
