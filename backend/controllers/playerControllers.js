@@ -23,3 +23,13 @@ export const getPlayers = (req, res) => {
         res.json(Player);
      });
 }
+
+export const getPlayerWithId = (req, res) => {
+    Player.findById(req.param.PlayerId, (err, Player) => {  // when we send a request to get a specifc player ID 
+        // we want it to look for that specifc ID
+        if(err){
+            res.send(err);
+        }
+        res.json(Player);
+     });
+}
