@@ -12,7 +12,7 @@ export const addNewPlayer = (req, res) => {
         }
         res.json(Player);
      });
-}
+};
 
 export const getPlayers = (req, res) => {
     // let newPlayer = new Player(req.body) 
@@ -22,7 +22,7 @@ export const getPlayers = (req, res) => {
         }
         res.json(Player);
      });
-}
+};
 
 export const getPlayerWithId = (req, res) => {
     Player.findById(req.param.PlayerId, (err, Player) => {  // when we send a request to get a specifc player ID 
@@ -32,4 +32,25 @@ export const getPlayerWithId = (req, res) => {
         }
         res.json(Player);
      });
-}
+};
+
+export const updatePlayer = (req, res) => {
+    Player.findOneAndUpdate( {_id: req.params.PlayerId}, req.body, {new: true}, (err, Player) => { // first we find the id that we want to update then (req.body)
+        // we pass what we have as data in our body - I believe it means that all other data will be the same except for the data that is getting updating
+        // the reason we put { new: true } is so that our updated player gets displayed and not the previous one
+        if(err){
+            res.send(err);
+        }
+        res.json(Player);
+     });
+};
+
+export const deletePlayer = (req, res) => {
+    Player.remove({_id: req.params.PlayerId}, (err, Player) => {  // when we send a request to get a specifc player ID 
+        // we want it to look for that specifc ID
+        if(err){
+            res.send(err);
+        }
+        res.json({ message: 'Successfully deleted player!' });
+     });
+};
