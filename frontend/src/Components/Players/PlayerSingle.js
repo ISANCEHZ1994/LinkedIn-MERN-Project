@@ -7,15 +7,15 @@ const PlayerSingle = (props) => {
             <div className="col s12 m7">
                 <div className="card">
                     <div className="card-image">
-                        <img src="soccer.jpeg"/> {/* BE AWARE when using Materialize CSS the img tag is not closed */}
+                        <img src="soccer.jpeg" alt='soccerphoto'/> {/* BE AWARE when using Materialize CSS the img tag is not closed */}
     <span className="card-title">{props.player.firstName} {props.player.lastName}</span>
                     </div>
                     <div className="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
+                        <p>Phone: {props.player.phone} - Email:{props.player.email}</p>
+                        <p>Strength: {props.player.strength}</p> -  <p>Endurance: {props.player.endurance}</p>
                     </div>
                     <div className="card-action">
-                        <a href="/">This is a link</a>
+                        Team: {props.player.teamName}
                     </div>
                 </div>
             </div>
